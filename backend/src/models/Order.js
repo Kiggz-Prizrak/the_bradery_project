@@ -1,5 +1,5 @@
 module.exports = (Sequelize, DataTypes) =>
-  Sequelize.define("Command", {
+  Sequelize.define("Order", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

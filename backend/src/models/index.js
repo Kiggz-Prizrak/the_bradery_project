@@ -12,14 +12,14 @@ const sequelize = new Sequelize(
 
 const user = require("./User")(sequelize, Sequelize.DataTypes);
 const product = require("./Product")(sequelize, Sequelize.DataTypes);
-const command = require("./Command")(sequelize, Sequelize.DataTypes);
+const order = require("./Order")(sequelize, Sequelize.DataTypes);
 
 Sequelize.User = user;
 Sequelize.Product = product;
-Sequelize.Command = command;
+Sequelize.Order = order;
 
-user.hasMany(command)
-command.belongsTo(user)
+user.hasMany(order)
+order.belongsTo(user)
 
 sequelize
   .authenticate()
