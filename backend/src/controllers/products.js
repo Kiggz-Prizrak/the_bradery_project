@@ -1,9 +1,11 @@
-const { User, Command, Product } = require('../models')
+const { User, Command, Product } = require("../models");
 
-exports.getallProduct = async (req, res) => {
+exports.createProduct = async (req, res) => {};
 
-}
+exports.getallProduct = async (req, res) => {};
 
-exports.getOneProduct = async (req, res) => {
-  
-}
+exports.getOneProduct = async (req, res) => {};
+
+exports.modifyProduct = async (req, res) => {};
+
+exports.deleteProduct = async (req, res) => {};
