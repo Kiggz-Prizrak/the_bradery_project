@@ -10,13 +10,4 @@ module.exports = (Sequelize, DataTypes) =>
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    productList: {
-      type: DataTypes.STRING,
-      get: function () {
-        return JSON.parse(this.getDataValue("myArrayField"));
-      },
-      set: function (val) {
-        return this.setDataValue("myArrayField", JSON.stringify(val));
-      },
-    },
   });
