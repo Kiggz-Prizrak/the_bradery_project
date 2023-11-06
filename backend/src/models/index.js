@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 const user = require("./User")(sequelize, Sequelize.DataTypes);
 const product = require("./Product")(sequelize, Sequelize.DataTypes);
 const order = require("./Order")(sequelize, Sequelize.DataTypes);
-const orderItem = require("./OrderItem")(sequelize, Sequlize.DataTypes);
+const orderItem = require("./OrderItem")(sequelize, Sequelize.DataTypes);
 
 Sequelize.User = user;
 Sequelize.Product = product;
