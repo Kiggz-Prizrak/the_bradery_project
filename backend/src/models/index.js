@@ -13,13 +13,19 @@ const sequelize = new Sequelize(
 const user = require("./User")(sequelize, Sequelize.DataTypes);
 const product = require("./Product")(sequelize, Sequelize.DataTypes);
 const order = require("./Order")(sequelize, Sequelize.DataTypes);
+const orderItem = require("./OrderItem")(sequelize, Sequlize.DataTypes);
 
 Sequelize.User = user;
 Sequelize.Product = product;
 Sequelize.Order = order;
+Sequelize.OrderItem = orderItem;
 
 user.hasMany(order)
+
 order.belongsTo(user)
+order.hasMany(orderItem)
+
+orderItem.belongsTo(order)
 
 sequelize
   .authenticate()

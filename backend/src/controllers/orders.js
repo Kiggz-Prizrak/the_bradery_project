@@ -1,4 +1,4 @@
-const { User, Order, Product } = require("../models");
+const { User, Order, OrderItem, Product } = require("../models");
 
 exports.createOrder = async (req, res) => {};
 
