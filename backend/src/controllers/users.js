@@ -5,7 +5,6 @@ const { models } = require("../models");
 
 exports.signup = async (req, res) => {
   const userObject = req.body;
-  console.log(userObject);
 
   const userEmailFind = await models.User.findOne({
     where: { email: req.body.email },

@@ -1,6 +1,8 @@
 const { User, Order, OrderItem, Product } = require("../models");
 
-exports.createOrder = async (req, res) => {};
+exports.createOrder = async (req, res) => {
+  
+};
 
 exports.getAllOrders = async (req, res) => {};
 

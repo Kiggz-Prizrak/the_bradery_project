@@ -1,13 +1,8 @@
-const { User, Order, OrderItem, Product } = require("../models");
+const { promises: fs } = require("fs");
+const { models } = require("../models");
 
-exports.createOrderItem = (req, res) => {
+exports.createOrderItem = (req, res) => {};
 
-}
+exports.getAllOrderItems = (req, res) => {};
 
-exports.getAllOrderItems = (req, res) => {
-
-}
-
-exports.getOneOrderItem = (req, res) => {
-
-}
+exports.getOneOrderItem = (req, res) => {};
