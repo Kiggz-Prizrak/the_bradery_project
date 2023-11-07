@@ -25,5 +25,5 @@ module.exports = (Sequelize, DataTypes) =>
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   });
