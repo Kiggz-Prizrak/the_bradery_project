@@ -133,7 +133,6 @@ exports.modifyUser = async (req, res) => {
       where: { email: req.body.email },
     });
     if (userEmailFind) {
-      if (req.files) await fs.unlink(`images/${req.files.avatar[0].filename}`);
       return res
         .status(400)
         .json({ message: "email or username already used" });
