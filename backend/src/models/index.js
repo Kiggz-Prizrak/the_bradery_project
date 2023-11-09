@@ -23,9 +23,11 @@ Sequelize.OrderItem = orderItem;
 user.hasMany(order)
 
 order.belongsTo(user)
-order.hasMany(orderItem)
+order.hasMany(orderItem, { onDelete: "cascade", onUpdate: "cascade" });
 
 orderItem.belongsTo(order)
+orderItem.belongsTo(product)
+
 
 sequelize
   .authenticate()

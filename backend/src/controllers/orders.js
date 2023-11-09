@@ -15,7 +15,12 @@ exports.createOrder = async (req, res) => {
 exports.getAllOrders = async (req, res) => {
   if (req.auth.isAdmin) {
     const orders = await models.Order.findAll({
-      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: models.OrderItem,
+        },
+      ],
+    //  order: [["createdAt", "DESC"]],
     }).catch((error) =>
       res.status(400).json({ message: "bad request", error })
     );
@@ -23,17 +28,12 @@ exports.getAllOrders = async (req, res) => {
   } else {
     const orders = await models.Order.findAll({
       where: { UserId: req.auth.UserId },
-      // include: [
-      //   {
-      //     model: models.Product,
-      //     order: [["createdAt", "DESC"]],
-      //   },
-      // ],
-      // order: [[models.Product, "createdAt", "DESC"]],
-      // order: [
-      //   ["createdAt", "DESC"],
-      //   [models.Product, "createdAt", "DESC"],
-      // ],
+      include: [
+        {
+          model: models.OrderItem,
+        },
+      ],
+      order: [["createdAt", "DESC"]],
     }).catch((error) => res.status(400).json({ message: "bad request" }));
     return res.status(200).json(orders);
   }
@@ -69,8 +69,8 @@ exports.deleteOrder = async (req, res) => {
     return res.status(404).json({ message: "Order not found" });
   }
 
-  await models.Order.destroy({ where: { id: req.params.id } }).catch(
-    (error) => res.status(400).json({ error })
+  await models.Order.destroy({ where: { id: req.params.id } }).catch((error) =>
+    res.status(400).json({ error })
   );
 
   return res.status(200).json({ message: "Order deleted !" });
