@@ -1,4 +1,5 @@
 const { models } = require("../models");
+const productServices = require("../services/products");
 
 exports.createProduct = async (req, res) => {
   if (!req.auth.isAdmin)
@@ -12,29 +13,21 @@ exports.createProduct = async (req, res) => {
     return res.status(400).json({ message: "Please provide valid data" });
   }
 
-  const product = models.Product.create({
-    name: req.body.name,
-    price: req.body.price,
-    inventory: req.body.inventory,
-  });
-  if (product)
-    return res.status(201).json({ message: "product created", product });
+  const product = productServices.createProduct(req.body);
+  if (product) return res.status(201).json({ message: "product created" });
   return res.status(404).json({ message: "Error" });
 };
 
 exports.getAllProducts = async (req, res) => {
-  const products = await models.Product.findAll({
-    order: [["createdAt", "DESC"]],
-  }).catch((error) => res.status(400).json({ message: "bad request", error }));
+  const products = await productServices.productsGetter();
   return res.status(200).json(products);
 };
 
 exports.getOneProduct = async (req, res) => {
-  const product = await models.Product.findOne({
-    where: { id: req.params.id },
-  }).catch((error) =>
-    res.status(404).json({ message: "product not found", error })
-  );
+  const product = await productServices.productGetterOne(req.params.id);
+  if (!product) {
+    return res.status(404).json({ message: "not found" });
+  }
   return res.status(200).json(product);
 };
 
@@ -42,11 +35,9 @@ exports.modifyProduct = async (req, res) => {
   if (!req.auth.isAdmin)
     return res.status(401).json({ message: "Unauthorized request" });
 
-  const productModifier = await models.Product.findOne({
-    where: { id: req.params.id },
-  });
-  if (productModifier === null) {
-    return res.status(404).json({ message: "product not found" });
+  const productModifier = await productServices.productGetterOne(req.params.id);
+  if (!productModifier) {
+    return res.status(404).json({ message: "not found" });
   }
 
   if (
@@ -57,34 +48,25 @@ exports.modifyProduct = async (req, res) => {
     return res.status(400).json({ message: "Please provide valid data" });
   }
 
-  await models.Product.update(
-    { ...req.body, id: req.params.id },
-    { where: { id: req.params.id } }
-  ).catch((error) => res.status(400).json({ error }));
+  await productServices.updateProduct(req.body, req.params.id);
 
-  const product = await models.Product.findOne({
-    where: { id: req.params.id },
-  });
-
+  const product = await productServices.productGetterOne(req.params.id);
+  if (!productModifier) {
+    return res.status(404).json({ message: "not found" });
+  }
   return res.status(200).json({ message: "Product edited", product });
 };
 
 exports.deleteProduct = async (req, res) => {
-
   if (!req.auth.isAdmin)
     return res.status(401).json({ message: "Unauthorized request" });
- 
-    const product = await models.Product.findOne({
-    where: { id: req.params.id },
-  });
 
-  if (product === null) {
-    return res.status(404).json({ message: "Product not found" });
+  const product = await productServices.productGetterOne(req.params.id);
+  if (!product) {
+    return res.status(404).json({ message: "not found" });
   }
 
-  await models.Product.destroy({ where: { id: req.params.id } }).catch((error) =>
-    res.status(400).json({ error })
-  );
+  await productServices.deleteProduct(req.params.id);
 
   return res.status(200).json({ message: "Objet supprimé !" });
 };

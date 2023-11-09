@@ -7,9 +7,7 @@ exports.mailChecker = (email) => {
 };
 
 exports.createNewUser = (data) => {
-  return models.User.create({
-    ...data,
-  });
+  return models.User.create(...data);
 };
 
 exports.userFinder = (email) => {
@@ -35,8 +33,8 @@ exports.userGetterOne = (id) => {
 };
 
 exports.updateUser = (data) => {
-  return models.User.update(data, { where: { id: data.id } }).catch(
-    (error) => res.status(400).json({ error })
+  return models.User.update(data, { where: { id: data.id } }).catch((error) =>
+    res.status(400).json({ error })
   );
 };
 
@@ -44,4 +42,4 @@ exports.deleteUser = (id) => {
   return models.User.destroy({ where: { id } }).catch((error) =>
     res.status(400).json({ error })
   );
-}
+};
