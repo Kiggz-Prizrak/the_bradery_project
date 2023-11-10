@@ -1,0 +1,127 @@
+* {
+  font-family: "Manrope", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  line-height: 58px;
+  color: black;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 44px;
+  color: black;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.15px;
+  line-height: 36px;
+  color: black;
+}
+
+h4 {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 38px;
+  color: black;
+}
+
+h5 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  line-height: 33px;
+  color: black;
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  line-height: 24px;
+  color: black;
+  margin: 0;
+}
+
+p {
+  font-weight: medium;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.214286px;
+
+  color: #000000;
+}
+
+input::placeholder {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.25px;
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+  opacity: 0.4;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1.3px;
+}
+
+a:hover {
+  color: $primary_color;
+}
+
+.overline {
+  color: $primary_color;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 10px;
+}
+.subtitle {
+  color: $primary_color;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

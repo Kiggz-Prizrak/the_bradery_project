@@ -9,7 +9,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 
 import Login from "../pages/Login";
-import Product from "../pages/Article";
+import Product from "../pages/Product";
 import Account from "../pages/Account";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
