@@ -29,3 +29,11 @@ exports.deleteProduct = (id) => {
     res.status(400).json({ error })
   );
 }
+
+exports.decrementInventory = (quantity, id) => {
+  return models.Product.increment(
+    { inventory: -quantity },
+    { where: { id } }
+  );
+}
+
