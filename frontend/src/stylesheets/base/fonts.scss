@@ -89,7 +89,6 @@ input::placeholder {
 }
 
 a {
-  color: white;
   font-weight: bold;
   font-size: 13px;
   text-transform: uppercase;
@@ -97,9 +96,9 @@ a {
   letter-spacing: 1.3px;
 }
 
-a:hover {
-  color: $primary_color;
-}
+
+
+
 
 .overline {
   color: $primary_color;

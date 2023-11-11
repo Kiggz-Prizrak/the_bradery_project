@@ -1,8 +1,7 @@
-
 @mixin flex_midle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @mixin flex_separation {
   display: flex;
@@ -17,20 +16,24 @@
 }
 
 @mixin flex_column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @mixin flex_column_list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @mixin flex_arround {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@mixin max_width {
+  max-width: 1440px;
+  width: 100%;
 }
