@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-// import { addToCart } from "../store/cartSlice";
-// import productBuilder from "../store/productBuilder";
+import { addToCart } from "../store/slice";
 
 import ButtonQuantity from ".//ButtonQuantity";
 import CloseIcon from "../assets/icons/CloseIcon";
 
-const ProductSection = ({ price, name, media }) => {
+const ProductSection = ({ price, name, media, id}) => {
   const [articleQuantity, setArticleQuantity] = useState(0);
   const [errorQuantity, setErrorQuantity] = useState("");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <section className="productSection_container">
@@ -29,25 +28,21 @@ const ProductSection = ({ price, name, media }) => {
 
           <button
             className="button-blue"
-            // onClick={() => {
-            //   if (articleQuantity > 0) {
-            //     setErrorQuantity("");
-            //     dispatch(
-            //       addToCart(
-            //         productBuilder(
-            //           id,
-            //           price,
-            //           articleQuantity,
-            //           title,
-            //           image,
-            //           slug
-            //         )
-            //       )
-            //     );
-            //   } else {
-            //     setErrorQuantity("veuillez sélectionner une quantité");
-            //   }
-            // }}
+            onClick={() => {
+              if (articleQuantity > 0) {
+                setErrorQuantity("");
+                dispatch(
+                  addToCart({
+                    price,
+                    name,
+                    productQuantity: articleQuantity,
+                    id,
+                  })
+                );
+              } else {
+                setErrorQuantity("veuillez sélectionner une quantité");
+              }
+            }}
           >
             add to cart
           </button>

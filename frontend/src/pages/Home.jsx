@@ -10,16 +10,17 @@ const Home = () => {
 
   return (
     <main>
-     
       <div>
-        {productList.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            id={product.id}
-            price={product.price}
-          />
-        ))}
+        <div className="productList_container">
+          {productList.map((product) => (
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              id={product.id}
+              price={product.price}
+            />
+          ))}
+        </div>
       </div>
     </main>
   );

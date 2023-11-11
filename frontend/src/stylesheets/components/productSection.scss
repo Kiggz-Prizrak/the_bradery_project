@@ -16,7 +16,7 @@
   max-width: 540px;
   width: 100%;
   height: 500px;
-  @include flex_midle
+  @include flex_midle;
 }
 
 .articleDescription-content {
@@ -53,5 +53,14 @@
     .button-container {
       justify-content: center;
     }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .productList_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }

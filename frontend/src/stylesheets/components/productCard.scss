@@ -2,10 +2,7 @@
   max-width: 223px;
   width: 100%;
   @include flex_column;
-
-  a {
-    
-  }
+  margin: 25px 0;
 }
 
 .productCard_media {
