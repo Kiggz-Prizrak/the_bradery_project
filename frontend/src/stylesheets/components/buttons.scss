@@ -12,3 +12,17 @@
     background-color: $secondary_color;
   }
 }
+
+.buttonQuantity-container {
+  width: 120px;
+  height: 48px;
+  background-color: $light-grey;
+  @include flex_arround;
+  margin-right: 20px;
+  button {
+    margin: 0;
+    border: none;
+    background: none;
+    @include flex_midle;
+  }
+}
