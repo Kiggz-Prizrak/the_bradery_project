@@ -1,12 +1,12 @@
 const { models } = require("../models");
 
 exports.createProduct = (data) => {
+  console.log(data);
   return models.Product.create(data);
 };
 
 exports.productsGetter = () => {
   return models.Product.findAll({
-    order: [["createdAt", "DESC"]],
   }).catch((error) => res.status(400).json({ message: "bad request", error }));
 };
 

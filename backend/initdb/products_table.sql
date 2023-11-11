@@ -30,7 +30,3 @@ INSERT INTO Products (name, price, inventory) VALUES
     ('Pantalon Chino', 54.99, 50),
     ('Blouse Florale', 39.99, 40);
 
-CREATE TABLE Users (
-  INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-)

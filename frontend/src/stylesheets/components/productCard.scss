@@ -1,0 +1,19 @@
+.productCard_container {
+  max-width: 223px;
+  width: 100%;
+  @include flex_column;
+
+  a {
+    
+  }
+}
+
+.productCard_media {
+  height: 318px;
+
+  background-color: $grey;
+  border-radius: 12px;
+  width: 223px;
+  height: 318px;
+  @include flex_midle;
+}

@@ -13,7 +13,7 @@ import Product from "../pages/Product";
 import Account from "../pages/Account";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
-import PaySelect from "../pages/PaySelect";
+import Checkout from "../pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
         element: <Account />,
       },
       {
-        path: "/PaySelect",
-        element: <PaySelect />,
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },

@@ -7,7 +7,7 @@ exports.mailChecker = (email) => {
 };
 
 exports.createNewUser = (data) => {
-  return models.User.create(...data);
+  return models.User.create(data);
 };
 
 exports.userFinder = (email) => {
