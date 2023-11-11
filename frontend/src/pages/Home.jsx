@@ -1,9 +1,12 @@
-import React from 'react'
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
 
-export default Home
+  const productList = useLoaderData();
+
+  console.log(productList)
+
+  return <div>Home</div>;
+};
+
+export default Home;

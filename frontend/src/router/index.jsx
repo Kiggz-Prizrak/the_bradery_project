@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// import {
-//   getAllProducts
-//   getOneProduct,
-//   getUserData
-// } from "../api";
+import {
+  getAllProducts,
+  getOneProduct,
+  // getUserData
+} from "../api";
 
 import Root from "./Root";
 
@@ -24,16 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        // loader: () => {
-        //   return getAllArticles();
-        // },
+        loader: () => {
+          return getAllProducts();
+        },
       },
       {
         path: "/product/:id",
         element: <Product />,
-        // loader: ({ params }) => {
-        //   return getOneProduct(params.id);
-        // },
+        loader: ({ params }) => {
+          return getOneProduct(params.id);
+        },
       },
       {
         path: "/login",
