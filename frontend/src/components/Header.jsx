@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import Logo from "../assets/icons/Logo";
@@ -8,12 +8,10 @@ import Burger from "../assets/icons/Burger";
 import CloseIcon from "../assets/icons/CloseIcon";
 
 import Nav from "./Nav";
-import UserIcon from "../assets/icons/UserIcon";
-// import CartModal from "./CartModal";
+import CartModal from "./CartModal";
 
 const Header = () => {
-  const cart = [];
-  // const cart = useSelector((state) => state.cart) ;
+  const cart = useSelector((state) => state.cart) ;
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [navIsOpen, setNavIsOpen] = useState(false);
 
@@ -61,7 +59,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {/* {cartIsOpen ? <CartModal setCartIsOpen={setCartIsOpen} /> : ""} */}
+      {cartIsOpen ? <CartModal setCartIsOpen={setCartIsOpen} /> : ""}
     </>
   );
 };

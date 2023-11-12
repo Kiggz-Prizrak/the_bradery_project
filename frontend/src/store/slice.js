@@ -4,10 +4,11 @@ const slice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
-    user: {
-      isLoged : false,
+    userData: {
+      
       token: "",
       userId: "",
+      isLoged : false,
     }
   },
   reducers: {

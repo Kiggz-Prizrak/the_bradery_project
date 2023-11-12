@@ -1,0 +1,42 @@
+.cartItem_container {
+  @include flex_separation;
+  position: relative;
+  margin: 20px 0;
+  .cartItem_media {
+    background-color: $grey;
+    width: 64px;
+    height: 44px;
+    border-radius: 8px;
+    @include flex_midle;
+  }
+  button {
+    width: 100%;
+    
+  }
+
+  .buttonQuantity_container {
+    margin: 0;
+  }
+  .cartItem_text {
+    width: 100%;
+    margin: 0 10px;
+    p {
+      margin: 0;
+    }
+  }
+  .cartItem_removeButton {
+    position: absolute;
+    left: -10px;
+    top: -25px;
+    color: white;
+    font-weight: bold;
+    background-color: $primary_color;
+    border: none;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    &:hover {
+      background-color: $secondary_color;
+    }
+  }
+}

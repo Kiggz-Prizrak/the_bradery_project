@@ -3,7 +3,7 @@ import Plus from "../assets/icons/Plus";
 
 const ButtonQuantity = ({ setArticleQuantity, articleQuantity }) => {
   return (
-    <div className="buttonQuantity-container">
+    <div className="buttonQuantity_container">
       <button
         onClick={() =>
           articleQuantity !== 0 ? setArticleQuantity(articleQuantity - 1) : ""
