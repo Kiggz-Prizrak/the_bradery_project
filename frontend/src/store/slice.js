@@ -5,33 +5,32 @@ const slice = createSlice({
   initialState: {
     cart: [],
     userData: {
-      
       token: "",
       userId: "",
-      isLoged : false,
-    }
+      isLoged: false,
+    },
   },
   reducers: {
-    login: (state, action) =>  {
-      state.user.isLoged = true
-      state.user.token = action.payload.token;
-      state.user.userId = action.payload.userId
+    userlogin: (state, action) => {
+      state.userData.isLoged = true;
+      state.userData.token = action.payload.token;
+      state.userData.userId = action.payload.userId;
     },
     logout: (state) => {
       state.user.isLoged = false;
-      state.user.token = ""
-      state.user.userId = ""
+      state.user.token = "";
+      state.user.userId = "";
     },
     addToCart: (state, action) => {
-      console.log(action.payload)
+      console.log(action.payload);
       const itemInCart = state.cart.find(
         (item) => item.id === action.payload.id
       );
       if (itemInCart) {
-        console.log("oui")
+        console.log("oui");
         itemInCart.productQuantity += action.payload.productQuantity;
       } else {
-        console.log("non")
+        console.log("non");
         state.cart.push({ ...action.payload });
       }
     },
@@ -68,6 +67,6 @@ export const {
   decrementQuantity,
   removeItem,
   clearCart,
-  login,
-  logout
+  userlogin,
+  logout,
 } = slice.actions;

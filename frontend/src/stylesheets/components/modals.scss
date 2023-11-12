@@ -1,0 +1,28 @@
+.modal_background {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.555);
+  left: 0;
+  top: 0px;
+  height: 100vh;
+  @include flex_midle;
+}
+
+.modal_container {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.modal_header {
+  @include flex_separation;
+}
+
+.modal_content {
+  
+  display: flex;
+  margin: 8%;
+  flex-direction: column;
+  
+}

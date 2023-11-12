@@ -5,7 +5,7 @@
 @import "base/fonts";
 
 //components
-@import "components/cartModal", "components/cartItem", "components/header",
+@import "components/modals", "components/checkoutValidationModal.scss", "components/checkoutRecapItem","components/checkoutForm","components/cartModal", "components/cartItem", "components/header",
   "components/footer", "components/nav", "components/productCard",
   "components/buttons", "components/productSection";
 

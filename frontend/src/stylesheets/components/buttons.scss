@@ -26,3 +26,17 @@
     @include flex_midle;
   }
 }
+
+.button_transparent {
+  background-color: transparent;
+  border: solid 1px black;
+
+  border-radius: 100%;
+  max-width: 160px;
+  width: 28px;
+  height: 28px;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}

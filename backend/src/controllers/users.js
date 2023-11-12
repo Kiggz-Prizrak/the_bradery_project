@@ -28,12 +28,12 @@ exports.signup = async (req, res) => {
         userFieldsValidator[i]
       )
     ) {
-      return res.status(400).json({ message: "champs invalide" });
+      return res.status(400).json({ error: "champs invalide" });
     }
   }
   // E-mail Checker
   if (!/^[\w\d.+-]+@[\w.-]+\.[a-z]{2,4}$/.test(req.body.email)) {
-    return res.status(400).json({ message: "email invalide" });
+    return res.status(400).json({ error: "email invalide" });
   }
   // password Checker
   if (
@@ -41,7 +41,7 @@ exports.signup = async (req, res) => {
       req.body.password
     )
   ) {
-    return res.status(400).json({ message: "mot de passe invalide" });
+    return res.status(400).json({ error: "mot de passe invalide" });
   }
   // password bcrypt
   const hash = await bcrypt.hash(req.body.password, 10);
@@ -59,13 +59,13 @@ exports.login = async (req, res) => {
     typeof req.body.email !== "string" ||
     typeof req.body.password !== "string"
   ) {
-    return res.status(400).json({ message: "please provides valid data" });
+    return res.status(400).json({ error: "please provides valid data" });
   }
 
   const user = await userServices.userFinder(req.body.email);
 
   if (!user) {
-    return res.status(404).json({ message: "no user match with this mail" });
+    return res.status(404).json({ error: "no user match with this mail" });
   }
   const valid = await bcrypt
     .compare(req.body.password, user.password)
@@ -90,7 +90,7 @@ exports.login = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   if (!req.auth.isAdmin) {
-    return res.status(401).json({ message: "Unauthorized request" });
+    return res.status(401).json({ error: "Unauthorized request" });
   }
   const users = await userServices.usersGetter();
   return res.status(200).json(users);
@@ -106,12 +106,12 @@ exports.modifyUser = async (req, res) => {
 
   if (req.body.email) {
     if (await userServices.mailChecker(req.body.email)) {
-      return res.status(400).json({ message: "email  already used" });
+      return res.status(400).json({ error: "email  already used" });
     }
   }
 
   if (userModifier.id !== req.auth.UserId && !req.auth.isAdmin) {
-    return res.status(403).json({ message: "Unauthorized request" });
+    return res.status(403).json({ error: "Unauthorized request" });
   }
 
   // E-mail checker
@@ -119,7 +119,7 @@ exports.modifyUser = async (req, res) => {
     req.body.email &&
     !/^[\w\d.+-]+@[\w.-]+\.[a-z]{2,}$/.test(req.body.email)
   ) {
-    return res.status(400).json({ message: "email invalide" });
+    return res.status(400).json({ error: "email invalide" });
   }
   // password Checker
   if (
@@ -128,7 +128,7 @@ exports.modifyUser = async (req, res) => {
       req.body.password
     )
   ) {
-    return res.status(400).json({ message: "mot de passe invalide" });
+    return res.status(400).json({ error: "mot de passe invalide" });
   }
   // password bcrypt
   if (req.body.password) {
@@ -137,7 +137,7 @@ exports.modifyUser = async (req, res) => {
       typeof req.body.email !== "string" ||
       typeof req.body.password !== "string"
     ) {
-      return res.status(400).json({ message: "please provides all fields" });
+      return res.status(400).json({ error: "please provides all fields" });
     }
   }
 
@@ -149,7 +149,7 @@ exports.modifyUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   const user = await userServices.userGetterOne(req.params.id);
   if (user.id !== req.auth.UserId && !req.auth.isAdmin) {
-    return res.status(401).json({ message: "Unauthorized request" });
+    return res.status(401).json({ error: "Unauthorized request" });
   }
   await userServices.deleteUser(req.params.id);
   return res.status(200).json({ message: "Objet supprimé !" });

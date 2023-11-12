@@ -1,0 +1,154 @@
+.checkoutForm {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+
+}
+
+.checkoutForm_buttonLog {
+  @include flex_separation;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.checkoutForm-container {
+  background-color: $light-grey;
+  width: 64%;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.checkoutForm-content {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  max-width: 309px;
+  width: 100%;
+  min-width: 280px;
+  margin-top: 5px;
+  
+  .input {
+    display: flex;
+    align-items: center;
+    border: 1px solid $primary_color;
+    border-radius: 8px;
+    padding: 12px;
+    background: none;
+    margin-top: 9px;
+    width: 100%;
+  }
+
+  .errorMessage {
+    color: red;
+  }
+
+  .errorInput {
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 12px;
+    background: none;
+    margin-top: 9px;
+    width: 100%;
+  }
+
+  .errorOption {
+    border: 1px solid red !important;
+  }
+}
+
+.address-label {
+  max-width: none;
+  width: 100%;
+}
+
+.checkForm-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.checkForm-radio-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .checkForm-radio-container {
+    @include flex_column;
+    flex-wrap: wrap;
+
+    .checkForm-radio-label {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #cfcfcf;
+      border-radius: 8px;
+      padding: 12px 0px;
+      background: none;
+      margin-top: 9px;
+      width: 100%;
+    }
+  }
+}
+
+.checkForm-recap-container {
+  width: 33%;
+  background-color: $light-grey;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+.checkForm-submit {
+  background-color: $primary_color;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 48px;
+  color: white;
+  margin: 0;
+}
+
+@media screen and (max-width: 775px) {
+  .checkoutForm {
+    justify-content: center;
+  }
+  .checkForm-section {
+    justify-content: center;
+  }
+  .checkForm-radio-section {
+    justify-content: center;
+  }
+  .checkForm-recap-container {
+    width: 90%;
+  }
+  .checkoutForm-container {
+    width: 90%;
+  }
+
+  .labelContainer {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .checkoutValidationModal-container {
+    text-align: center;
+
+    .checkoutRecapItem-card-container div {
+      width: 100%;
+      max-width: none;
+      padding: 0 10%;
+    }
+  }
+}
