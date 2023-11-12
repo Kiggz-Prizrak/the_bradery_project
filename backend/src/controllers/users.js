@@ -6,7 +6,7 @@ exports.signup = async (req, res) => {
   const userObject = req.body;
 
   if (await userServices.mailChecker(req.body.email))
-    return res.status(400).json({ message: "email  already used" });
+    return res.status(400).json({ error: "email  already used" });
 
   if (
     typeof userObject.email !== "string" ||
@@ -14,7 +14,7 @@ exports.signup = async (req, res) => {
     typeof userObject.lastName !== "string" ||
     typeof userObject.firstName !== "string"
   ) {
-    return res.status(400).json({ message: "Please provide valid data" });
+    return res.status(400).json({ error: "Please provide valid data" });
   }
 
   const userFieldsValidator = [

@@ -80,92 +80,9 @@ const CheckoutForm = ({
                       setLoginModalIsOpen(true);
                     }}
                   >
-                    Log in{" "}
+                    Log in
                   </button>
                 </div>
-                {/* <p className="subtitle">Create you account</p>
-                <div className="checkForm-section">
-                  <div className="labelContainer">
-                    <label htmlFor="firstname">firstname</label>
-                    <input
-                      className={
-                        errors.firstname?.message ? "errorInput" : "input"
-                      }
-                      id="firstname"
-                      type="text"
-                      placeholder="your firstname"
-                      enterKeyHint="next"
-                      {...register("firstname", {
-                        required: "please provide this field",
-                        pattern: {
-                          value:
-                            /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/,
-                          message: "please provide valid data",
-                        },
-                      })}
-                    />
-                    <p className="errorMessage">{errors.name?.message}</p>
-                  </div>
-                  <div className="labelContainer">
-                    <label htmlFor="lastname">Lastname</label>
-                    <input
-                      className={
-                        errors.lastname?.message ? "errorInput" : "input"
-                      }
-                      id="lastname"
-                      type="text"
-                      placeholder="your lastname"
-                      enterKeyHint="next"
-                      {...register("lastname", {
-                        required: "please provide this field",
-                        pattern: {
-                          value:
-                            /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/,
-                          message: "please provide valid data",
-                        },
-                      })}
-                    />
-                    <p className="errorMessage">{errors.name?.message}</p>
-                  </div>
-                  <div className="labelContainer">
-                    <label htmlFor="email">E-mail</label>
-                    <input
-                      className={errors.email?.message ? "errorInput" : "input"}
-                      id="email"
-                      type="email"
-                      enterKeyHint="next"
-                      placeholder="youremail@email.com"
-                      {...register("email", {
-                        required: "please provide this field",
-                        pattern: {
-                          value: /^\S+@\S+\.\S+$/,
-                          message: "please entry valid email",
-                        },
-                      })}
-                    />
-                    <p className="errorMessage">{errors.email?.message}</p>
-                  </div>
-                  <div className="labelContainer">
-                    <label htmlFor="password">Password</label>
-                    <input
-                      className={
-                        errors.password?.message ? "errorInput" : "input"
-                      }
-                      id="password"
-                      type="password"
-                      placeholder="***********"
-                      {...register("password", {
-                        required: "please provide this field",
-                        pattern: {
-                          value:
-                            !/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[_.@$!%*#?&])[A-Za-z\d_.@$!%*#?&]{8,}$/,
-                          message: "please entry valid phone number",
-                        },
-                      })}
-                    />
-                    <p className="errorMessage">{errors.phone?.message}</p>
-                  </div>
-                </div> */}
               </>
             )}
 

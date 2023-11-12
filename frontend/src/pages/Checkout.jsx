@@ -21,9 +21,16 @@ const Checkout = () => {
           {isValid ? <CheckoutValidationModal /> : ""}
         </div>
       </main>
-      {loginModalIsOpen ? <LoginModal setLoginModalIsOpen={setLoginModalIsOpen}/> : ""}
+      {loginModalIsOpen ? (
+        <LoginModal setLoginModalIsOpen={setLoginModalIsOpen} />
+      ) : (
+        ""
+      )}
       {signInModalIsOpen ? (
-        <SignInModal setSignInModalIsOpen={setSignInModalIsOpen} />
+        <SignInModal
+          setSignInModalIsOpen={setSignInModalIsOpen}
+          setLoginModalIsOpen={setLoginModalIsOpen}
+        />
       ) : (
         ""
       )}

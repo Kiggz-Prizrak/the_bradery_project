@@ -63,8 +63,8 @@ const LoginModal = ({ setLoginModalIsOpen }) => {
             className="modal_form"
             action="submit"
           >
-            <p className="subtitle">Create you account</p>
-            <div className="checkForm-section">
+            
+            <div className="modalForm_section">
               <div className="labelContainer">
                 <label htmlFor="email">E-mail</label>
                 <input

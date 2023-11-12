@@ -1,18 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { userlogin } from "../store/slice";
 
 import CloseIcon from "../assets/icons/CloseIcon";
 
-const SignInModal = ({ setSignInModalIsOpen }) => {
-  const dispatch = useDispatch();
-
+const SignInModal = ({ setSignInModalIsOpen, setLoginModalIsOpen }) => {
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
   const [errorHTTP, setErroHTTP] = useState("");
-
 
   // const [formDatas, setFormDatas] = useState({
   //   firstname: "",
@@ -24,6 +20,25 @@ const SignInModal = ({ setSignInModalIsOpen }) => {
   const subForm = (data) => {
     setErroHTTP("");
     console.log(data);
+    fetch(`${import.meta.env.VITE_API_HOST}users/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.error) {
+          console.log(res.error);
+          setErroHTTP(res.error);
+        } else {
+          console.log(data);
+          setSignInModalIsOpen(false);
+          setLoginModalIsOpen(true);
+        }
+      });
   };
 
   return (
@@ -46,16 +61,16 @@ const SignInModal = ({ setSignInModalIsOpen }) => {
             action="submit"
           >
             <p className="subtitle">Create you account</p>
-            <div className="checkForm-section">
+            <div className="modalForm_section">
               <div className="labelContainer">
-                <label htmlFor="firstname">firstname</label>
+                <label htmlFor="firstName">firstname</label>
                 <input
-                  className={errors.firstname?.message ? "errorInput" : "input"}
-                  id="firstname"
+                  className={errors.firstName?.message ? "errorInput" : "input"}
+                  id="firstName"
                   type="text"
-                  placeholder="your firstname"
+                  placeholder="your firstName"
                   enterKeyHint="next"
-                  {...register("firstname", {
+                  {...register("firstName", {
                     required: "please provide this field",
                     pattern: {
                       value:
@@ -64,17 +79,17 @@ const SignInModal = ({ setSignInModalIsOpen }) => {
                     },
                   })}
                 />
-                <p className="errorMessage">{errors.firstname?.message}</p>
+                <p className="errorMessage">{errors.firstName?.message}</p>
               </div>
               <div className="labelContainer">
-                <label htmlFor="lastname">Lastname</label>
+                <label htmlFor="lastName">LastName</label>
                 <input
-                  className={errors.lastname?.message ? "errorInput" : "input"}
-                  id="lastname"
+                  className={errors.lastName?.message ? "errorInput" : "input"}
+                  id="lastName"
                   type="text"
-                  placeholder="your lastname"
+                  placeholder="your lastName"
                   enterKeyHint="next"
-                  {...register("lastname", {
+                  {...register("lastName", {
                     required: "please provide this field",
                     pattern: {
                       value:
@@ -83,7 +98,7 @@ const SignInModal = ({ setSignInModalIsOpen }) => {
                     },
                   })}
                 />
-                <p className="errorMessage">{errors.lastname?.message}</p>
+                <p className="errorMessage">{errors.lastName?.message}</p>
               </div>
               <div className="labelContainer">
                 <label htmlFor="email">E-mail</label>

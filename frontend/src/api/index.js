@@ -1,29 +1,3 @@
-const login = (userlog) => {
-  return fetch(`${import.meta.env.VITE_API_HOST}users/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userlog),
-  })
-    .then((res) => res.json())
-    .then((res) => console.log("res.error"))
-    // .catch((err) => console.log(err));
-    // .then((res) => {
-    //   console.log(res);
-    //   this.errorMessage = res.error;
-    //   const { token, user } = res;
-    //   this.$store.dispatch("setToken", token);
-    //   this.$store.dispatch("setUser", user);
-    //   if (user === undefined || token === undefined) {
-    //     localStorage.clear();
-    //   } else {
-    //     document.location.href = "http://localhost:8080/";
-    //   }
-    // });
-  
-  
-};
 
 // const signup = (data) => {}
 
@@ -94,5 +68,4 @@ export {
   getOrders,
   getOneOrders,
   editProfile,
-  login,
 };
