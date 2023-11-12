@@ -16,10 +16,7 @@ const LoginModal = ({ setLoginModalIsOpen }) => {
   const { errors } = formState;
 
   const [errorHTTP, setErroHTTP] = useState("");
-  // const [formDatas, setFormDatas] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+
 
   const subForm = (data) => {
 

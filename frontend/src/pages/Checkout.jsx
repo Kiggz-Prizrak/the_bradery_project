@@ -4,10 +4,13 @@ import CheckoutValidationModal from "../components/CheckoutValidationModal";
 import LoginModal from "../components/LoginModal";
 import SignInModal from "../components/SignInModal";
 
+
+
 const Checkout = () => {
   const [isValid, setIsValid] = useState(false);
   const [loginModalIsOpen, setLoginModalIsOpen] = useState(false)
   const [signInModalIsOpen, setSignInModalIsOpen] = useState(false);
+  
 
   return (
     <>
@@ -34,6 +37,7 @@ const Checkout = () => {
       ) : (
         ""
       )}
+      { isValid ? (<CheckoutValidationModal />) : ""}
     </>
   );
 };

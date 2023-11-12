@@ -2,52 +2,38 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { createOrder } from "../api";
 
 import CheckoutRecapItem from "./CheckoutRecapItem";
+import { clearCart } from "../store/slice";
 
 const CheckoutForm = ({
   setIsValid,
   setLoginModalIsOpen,
   setSignInModalIsOpen,
 }) => {
-  const [formDatas, setFormDatas] = useState({
-    shipping: {
-      address: "",
-      zipCode: "",
-      city: "",
-      country: "",
-    },
-    payment: {
-      eMonayNumber: "",
-      eMonayPin: "",
-    },
-  });
-
   const isLoged = useSelector((state) => state.userData.isLoged);
-
-  const { register, handleSubmit, control, formState } = useForm();
-  const { errors } = formState;
-
-  const navigate = useNavigate();
-
-  const subForm = (data) => {
-    console.log(data);
-    setIsValid(true);
-  };
-
-  const validateOption = (value) => {
-    if (!value) {
-      return "Please select an option.";
-    }
-    return true;
-  };
-
+  const userData = useSelector((state) => state.userData);
   const cart = useSelector((state) => state.cart);
   const totalPrice = cart.reduce(
     (accumulator, item) => accumulator + item.price * item.productQuantity,
     0
   );
+
+  const { register, handleSubmit, formState } = useForm();
+  const { errors } = formState;
+  const dispacth = useDispatch();
+
+  // const navigate = useNavigate();
+
+  const subForm = (data) => {
+    console.log(data);
+    createOrder(userData, totalPrice, cart);
+    setIsValid(true);
+    dispacth(clearCart());
+  };
 
   return (
     <>

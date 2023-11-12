@@ -21,6 +21,7 @@ const slice = createSlice({
       state.user.token = "";
       state.user.userId = "";
     },
+    
     addToCart: (state, action) => {
       console.log(action.payload);
       const itemInCart = state.cart.find(

@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-
-
 const Nav = ({ setNavIsOpen, navIsOpen }) => {
 
    const isLoged = useSelector((state) => state.userData.isLoged);

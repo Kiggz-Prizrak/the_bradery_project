@@ -8,6 +8,8 @@ const Account = () => {
   const [signInModalIsOpen, setSignInModalIsOpen] = useState(false);
 
   const isLoged = useSelector((state) => state.userData.isLoged);
+   const userData = useSelector((state) => state.userData);
+console.log(userData);
 
   return (
     <>
@@ -38,6 +40,10 @@ const Account = () => {
             </div>
           </>
         )}
+
+        <div> <h1>Page utilisateur</h1>
+        <h2>Bonjour {userData.firstname}</h2></div>
+
       </main>
       {loginModalIsOpen ? (
         <LoginModal setLoginModalIsOpen={setLoginModalIsOpen} />
