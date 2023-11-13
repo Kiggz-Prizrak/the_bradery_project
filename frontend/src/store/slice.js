@@ -17,9 +17,9 @@ const slice = createSlice({
       state.userData.userId = action.payload.userId;
     },
     logout: (state) => {
-      state.user.isLoged = false;
-      state.user.token = "";
-      state.user.userId = "";
+      state.userData.isLoged = false;
+      state.userData.token = "";
+      state.userData.userId = "";
     },
     
     addToCart: (state, action) => {

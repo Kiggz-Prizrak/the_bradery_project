@@ -13,7 +13,7 @@ const Nav = ({ setNavIsOpen, navIsOpen }) => {
       <a href="">Man</a>
       <a href="">Promotions</a>
       <NavLink
-        to={isLoged ? `/account` : "/login"}
+        to="account"
         className="home-link"
         onClick={() => setNavIsOpen(false)}
       >

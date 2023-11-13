@@ -2,10 +2,11 @@ import { useLoaderData } from "react-router-dom";
 import LoginModal from "../components/LoginModal";
 import SignInModal from "../components/SignInModal";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../api";
 import OrderSection from "../components/OrdersSection";
 
+import { logout } from "../store/slice";
 const Account = () => {
   const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
   const [signInModalIsOpen, setSignInModalIsOpen] = useState(false);
@@ -16,6 +17,7 @@ const Account = () => {
 
   const [userInfo, setUserInfo] = useState({});
   const [orderList, setOrderList] = useState([]);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_HOST}users/${userLog.userId}`, {
@@ -39,7 +41,14 @@ const Account = () => {
     <>
       <main>
         {isLoged ? (
-          ""
+          <>
+            <div>
+              <h1>Page testutilisateur</h1>
+              <h2>Bonjour {userInfo.firstName} </h2>
+              <button className="button-blue" onClick={() => dispatch(logout())}>Logout</button>
+            </div>
+            <OrderSection orders={orderList} />
+          </>
         ) : (
           <>
             <div className="checkoutForm_buttonLog">
@@ -65,12 +74,7 @@ const Account = () => {
           </>
         )}
 
-        <div>
-          {" "}
-          <h1>Page utilisateur</h1>
-          <h2>Bonjour {userInfo?.firstName} </h2>
-        </div>
-        <OrderSection orders={orderList} />
+      
       </main>
       {loginModalIsOpen ? (
         <LoginModal setLoginModalIsOpen={setLoginModalIsOpen} />

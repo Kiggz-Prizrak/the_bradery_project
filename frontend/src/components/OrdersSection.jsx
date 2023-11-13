@@ -9,11 +9,11 @@ const OrderSection = ({ orders }) => {
     <section className="orderSection_container">
       <h2>yours orders</h2>
       <ul className="orderCard_container">
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <li key={order.id} className="orderCard">
             <h3>Total price : {order.totalPrice} €</h3>
             <ul>
-              {order.OrderItems.map((orderItem) => (
+              {order.OrderItems?.map((orderItem) => (
                 <li key={orderItem.id}>
                   <div className="orderCard_content">
                     <CloseIcon />
