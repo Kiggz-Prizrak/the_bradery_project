@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import {
-  getAllProducts,
-  getOneProduct,
-  // getUserData
-} from "../api";
+import { getAllProducts, getOneProduct, getUserData } from "../api";
+
 
 import Root from "./Root";
 
@@ -15,7 +12,10 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Checkout from "../pages/Checkout";
 
-const router = createBrowserRouter([
+
+const router = createBrowserRouter(
+  
+  [
   {
     path: "/",
     element: <Root />,
@@ -42,6 +42,9 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: <Account />,
+        // loader: ({ params }) => {
+        //   return getUserData(params.id);
+        // },
       },
       {
         path: "/checkout",

@@ -67,7 +67,10 @@ const getOneProduct = (id) => {
 };
 
 const getUserData = (id, token) => {
+  console.log(token)
+  console.log(id)
   return fetch(`${import.meta.env.VITE_API_HOST}users/${id}`, {
+    method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => res.json())

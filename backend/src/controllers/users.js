@@ -97,7 +97,16 @@ exports.getAllUsers = async (req, res) => {
 };
 
 exports.getOneUser = async (req, res) => {
-  const user = await userServices.userGetterOne(req.params.id);
+  if (req.auth.isAdmin) {
+    const user = await userServices.userGetterOne(req.params.id);
+    return res.status(200).json(user);
+  }
+
+  if (req.auth.UserId != req.params.id) {
+    return res.status(401).json({ message: "Unauthorized request 1 " });
+  }
+  const user = await userServices.userGetterOneByUser(req.params.id);
+  if (!user) return res.status(401).json({ message: "Unauthorized request 2" });
   return res.status(200).json(user);
 };
 

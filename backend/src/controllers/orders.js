@@ -16,44 +16,19 @@ exports.createOrder = async (req, res) => {
 exports.getAllOrders = async (req, res) => {
   if (req.auth.isAdmin) {
     const orders = await ordersServices.allOrdersGetter();
-    // const orders = await models.Order.findAll({
-    //   include: [
-    //     {
-    //       model: models.OrderItem,
-    //     },
-    //   ],
-    //   //  order: [["createdAt", "DESC"]],
-    // }).catch((error) =>
-    //   res.status(400).json({ message: "bad request", error })
-    // );
     return res.status(200).json(orders);
-  } else {
-    const orders = await ordersServices.userOrdersGetter(req.auth.userId);
-    // const orders = await models.Order.findAll({
-    //   where: { UserId: req.auth.UserId },
-    //   include: [
-    //     {
-    //       model: models.OrderItem,
-    //     },
-    //   ],
-    //   order: [["createdAt", "DESC"]],
-    // }).catch((error) => res.status(400).json({ message: "bad request" }));
+  } 
+  
+    const orders = await ordersServices.userOrdersGetter(req.auth.UserId, res);
+
     return res.status(200).json(orders);
-  }
+  
 };
 
 exports.getOneOrder = async (req, res) => {
   if (req.auth.isAdmin) {
     const order = await ordersServices.orderGetterOne(req.auth.userId, res);
-    // const order = await models.Order.findOne({
-    //   where: { id: req.params.id },
-    // }).catch((error) =>
-    //   res.status(404).json({ message: "product not found", error })
-    // );
-    // if (!order) {
-    //   return res.status(404).json({ message: "not found" });
-    // }
-    // return res.status(200).json(order);
+
     return res.status(200).json(order);
   } else {
     const order = await ordersServices.orderGetterOneByUser(
@@ -61,6 +36,8 @@ exports.getOneOrder = async (req, res) => {
       req.auth.UserId,
       res
     );
+    if (order.UserId !== req.auth.UserId)
+      return res.status(401).json({ message: "Unauthorized request" });
     return res.status(200).json(order);
   }
 };

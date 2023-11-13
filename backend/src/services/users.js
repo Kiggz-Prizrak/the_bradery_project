@@ -26,9 +26,16 @@ exports.usersGetter = () => {
 
 exports.userGetterOne = (id) => {
   return models.User.findOne({
-    where: { id },
-  }).catch((error) => res.status(404).json({ error: "user not found" }));
+    where: { id: id },
+  }).catch((error) => res.status(404).json({ error: "user not found", error }));
 };
+
+exports.userGetterOneByUser = (id) => {
+  return models.User.findOne({
+    where: { id },
+  }).catch((error) => res.status(404).json({ error: "user not found", error }));
+};
+
 
 exports.updateUser = (data) => {
   return models.User.update(data, { where: { id: data.id } }).catch((error) =>

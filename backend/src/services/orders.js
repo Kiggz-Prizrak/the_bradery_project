@@ -6,6 +6,7 @@ exports.createOrder = (data) => {
 
 //user getter
 exports.userOrdersGetter = (id) => {
+  console.log(id)
    return models.Order.findAll({
      where: { UserId: id },
      include: [
@@ -14,7 +15,7 @@ exports.userOrdersGetter = (id) => {
        },
      ],
      order: [["createdAt", "DESC"]],
-   }).catch((error) => res.status(400).json({ message: "bad request" }));
+   }).catch((error) => res.status(400).json({ message: "bad request",  }));
 };
 
 //admin getter
@@ -38,9 +39,9 @@ exports.orderGetterOne = (id, res) => {
   );
 }
 //user getter
-exports.orderGetterOneByUser = (id, UserId, res) => {
+exports.orderGetterOneByUser = (id, res) => {
   return models.Order.findOne({
-    where: { id, UserId },
+    where: { id },
   }).catch((error) =>
     res.status(404).json({ message: "product not found", error })
   );

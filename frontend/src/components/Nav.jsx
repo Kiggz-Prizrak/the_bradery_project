@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = ({ setNavIsOpen, navIsOpen }) => {
 
-   const isLoged = useSelector((state) => state.userData.isLoged);
+  const isLoged = useSelector((state) => state.userData.isLoged);
   return (
     <nav className={navIsOpen ? "nav_open" : "nav_closed"}>
       <NavLink to="/" className="home-link" onClick={() => setNavIsOpen(false)}>
@@ -13,7 +13,7 @@ const Nav = ({ setNavIsOpen, navIsOpen }) => {
       <a href="">Man</a>
       <a href="">Promotions</a>
       <NavLink
-        to={isLoged ? "/account" : "/login"}
+        to={isLoged ? `/account` : "/login"}
         className="home-link"
         onClick={() => setNavIsOpen(false)}
       >

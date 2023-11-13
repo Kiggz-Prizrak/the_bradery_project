@@ -1,0 +1,22 @@
+.orderSection_container {
+  background-color: $grey;
+  border-radius: 8px;
+  width: 100%;
+  @include flex_column
+}
+
+.orderCard_container {
+  @include flex_column;
+  gap: 20px;
+  margin: 15px;
+}
+
+.orderCard {
+  background-color: $light-grey;
+  padding: 20px;
+}
+
+.orderCard_content {
+  @include flex_separation
+  
+}
