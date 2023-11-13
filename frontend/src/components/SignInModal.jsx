@@ -10,13 +10,6 @@ const SignInModal = ({ setSignInModalIsOpen, setLoginModalIsOpen }) => {
 
   const [errorHTTP, setErroHTTP] = useState("");
 
-  // const [formDatas, setFormDatas] = useState({
-  //   firstname: "",
-  //   lastname: "",
-  //   email: "",
-  //   password: "",
-  // });
-
   const subForm = (data) => {
     setErroHTTP("");
     console.log(data);

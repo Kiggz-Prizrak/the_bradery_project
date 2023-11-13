@@ -28,10 +28,10 @@ const slice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemInCart) {
-        console.log("oui");
+        
         itemInCart.productQuantity += action.payload.productQuantity;
       } else {
-        console.log("non");
+      
         state.cart.push({ ...action.payload });
       }
     },

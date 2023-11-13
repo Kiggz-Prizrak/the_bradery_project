@@ -9,18 +9,15 @@ import { userlogin } from "../store/slice";
 import CloseIcon from "../assets/icons/CloseIcon";
 
 const LoginModal = ({ setLoginModalIsOpen }) => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
   const [errorHTTP, setErroHTTP] = useState("");
 
-
   const subForm = (data) => {
-
-    setErroHTTP("")
+    setErroHTTP("");
 
     fetch(`${import.meta.env.VITE_API_HOST}users/login`, {
       method: "POST",
@@ -35,11 +32,10 @@ const LoginModal = ({ setLoginModalIsOpen }) => {
         if (res.error) {
           setErroHTTP(res.error);
         } else {
-          dispatch(userlogin({userId : res.user.id, token: res.token}));
-          setLoginModalIsOpen(false)
-
+          dispatch(userlogin({ userId: res.user.id, token: res.token }));
+          setLoginModalIsOpen(false);
         }
-      })
+      });
   };
 
   return (
@@ -60,7 +56,6 @@ const LoginModal = ({ setLoginModalIsOpen }) => {
             className="modal_form"
             action="submit"
           >
-            
             <div className="modalForm_section">
               <div className="labelContainer">
                 <label htmlFor="email">E-mail</label>

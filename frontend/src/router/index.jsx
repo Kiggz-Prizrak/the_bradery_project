@@ -42,9 +42,7 @@ const router = createBrowserRouter(
       {
         path: "/account",
         element: <Account />,
-        // loader: ({ params }) => {
-        //   return getUserData(params.id);
-        // },
+
       },
       {
         path: "/checkout",
