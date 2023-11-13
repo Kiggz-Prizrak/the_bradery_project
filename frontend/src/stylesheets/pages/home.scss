@@ -1,5 +1,5 @@
 .home_container {
-  @include flex_column
+  @include flex_column;
 }
 
 .productList_container {
@@ -11,16 +11,17 @@
 }
 
 .product_search {
-     max-width: 350px;
-   
+  width: 100%;
+
+  max-width: 450px;
+
   position: relative;
   @include flex_midle;
   input {
-  width: 100%;
+    width: 100%;
     height: 40px;
     border-radius: 8px;
-    padding: 0 20px ;
-    
+    padding: 0 20px;
   }
   span {
     position: absolute;

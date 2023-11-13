@@ -29,7 +29,6 @@ const CheckoutForm = ({
   // const navigate = useNavigate();
 
   const subForm = (data) => {
-    console.log(data);
     createOrder(userData, totalPrice, cart);
     setIsValid(true);
     dispacth(clearCart());
