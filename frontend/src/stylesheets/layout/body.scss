@@ -160,3 +160,7 @@ main {
   max-width: 1111px;
   @include flex_column;
 }
+
+button {
+  cursor: pointer;
+}
